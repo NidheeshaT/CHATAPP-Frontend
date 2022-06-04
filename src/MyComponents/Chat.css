@@ -1,0 +1,24 @@
+section{
+    flex-basis:500px ;
+    min-width: 200px;
+    flex-grow: 3;
+    flex-shrink: 1;
+    min-height: 600px;
+    border: 1px solid black;
+    margin:50px 10px;
+    display: grid;
+    grid-template-rows: auto 30px;
+
+}
+
+#chats{
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    background-color: rgb(255, 252, 248);
+}
+
+#message{
+    display: grid;
+    grid-template-columns: auto 200px;
+}

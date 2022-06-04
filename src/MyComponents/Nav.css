@@ -1,0 +1,49 @@
+nav{
+    background-color: rgb(255, 200, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 5px;
+}
+
+#links{
+    display: flex;
+    align-items: center;
+}
+
+#ham{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#ham span{
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 3px;
+}
+
+#links ul{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgb(255, 200, 0);
+}
+
+#links ul li{
+    list-style: none;
+    margin: 5px 10px;
+}
+
+#links ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+#links ul li a:hover{
+    color: rgb(255, 200, 0);
+    background-color: rgb(243, 243, 243);
+    border-radius: 35%;
+}
