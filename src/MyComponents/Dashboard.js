@@ -7,7 +7,9 @@ function Dashboard(){
       <aside>
 
       </aside>
-      <Chat/>
+      <section>
+       <Chat/>
+      </section>
     </main>
   )
 }

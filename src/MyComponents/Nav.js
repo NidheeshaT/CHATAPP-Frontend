@@ -24,7 +24,6 @@ function Nav(){
 			hamSet(1)
 	}
 	useEffect(()=>{
-		console.log("hello")
 		if(window.innerWidth<=425){
 			setScreen(1);
 		}	

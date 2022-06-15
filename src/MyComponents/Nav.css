@@ -43,7 +43,7 @@ nav{
 }
 
 #links ul li a:hover{
-    color: rgb(255, 200, 0);
-    background-color: rgb(243, 243, 243);
-    border-radius: 35%;
+    color: rgb(255, 132, 0);
+    background-color: white;
+    border-radius: 5px;
 }
