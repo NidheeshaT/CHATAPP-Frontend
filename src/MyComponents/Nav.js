@@ -11,9 +11,11 @@ function Nav(){
 	let fr={
 		"position":"absolute",
 		"flexDirection":"column",
+		"display":"block",
 		"width":"100%",
 		"left":"0px",
-		"top":"37px",
+		"top":"41.6px",
+		"alignItems":"stretch"
 	}
 	const [smscreen,setScreen]=useState(1);
 	const [ham,hamSet]=useState(0);
@@ -21,7 +23,7 @@ function Nav(){
 		if(ham)
 			hamSet(0);
 		else
-			hamSet(1)
+			hamSet(1);
 	}
 	useEffect(()=>{
 		if(window.innerWidth<=425){
@@ -31,7 +33,7 @@ function Nav(){
 			setScreen(0);
 		}
 		window.addEventListener("resize",()=>{
-			if(window.innerWidth<=425){
+			if(window.innerWidth<=550){
 				setScreen(1);
 			}	
 			else{
@@ -51,9 +53,9 @@ function Nav(){
 				<span></span>
 			</div>
 			<ul style={smscreen?ham?fr:none:{}}>
-				<li> <a href="/">Chat</a> </li>
-				<li><a href="/">Profile</a></li>
+				<li><a href="/">Chat</a> </li>
 				<li><a href="/">About</a></li>	
+				<li><a href="/">Login</a></li>	
 			</ul>
 		</div>
     </nav>

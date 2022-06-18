@@ -1,14 +1,38 @@
 import "./Dashboard.css"
-import Chat from "./Chat.js"
+import Profile from "./Profile.jsx";
+import {useState,useEffect} from "react"
 
 function Dashboard(){
+
+  let none={
+    "display":"none"
+  }
+
+  const [smscreen,setScreen]=useState(1);
+  useEffect(()=>{
+		if(window.innerWidth<=550){
+			setScreen(1);
+		}	
+		else{
+			setScreen(0);
+		}
+		window.addEventListener("resize",()=>{
+			if(window.innerWidth<=550){
+				setScreen(1);
+			}	
+			else{
+				setScreen(0);
+			}
+		})
+	},[])
   return (
     <main>
-      <aside>
+      <aside id="side-bar" style={smscreen?none:{}}>
 
       </aside>
-      <section>
-       <Chat/>
+      <section id="main-bar">
+        {/* <Chat/> */}
+        <Profile/>
       </section>
     </main>
   )

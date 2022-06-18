@@ -12,21 +12,12 @@
     height: 100%;
     background-color: rgb(255, 252, 248);
 }
-/* 
-.right{
-    float: right;
-    clear: both;
-    padding: 3px 20px;
-    background-color: rgb(255, 132, 0);
-    margin: 10px 0px;
-    width: fit-content;
-    border-top-left-radius:5px ;
-    border-bottom-left-radius:5px ;
-} */
+
 
 .right{
+    color: white;
     padding: 3px 20px;
-    background-color: rgb(255, 132, 0);
+    background-color: black;
     margin: 10px 0px;
     margin-left: auto;
     width: fit-content;
@@ -36,7 +27,7 @@
 .left{
     margin-right: auto;
     padding: 3px 20px;
-    background-color: rgb(255, 132, 0);
+    background-color: white;
     margin: 10px 0px;
     width: fit-content;
     border-top-right-radius:5px ;

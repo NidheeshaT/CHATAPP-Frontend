@@ -1,9 +1,10 @@
 nav{
-    background-color: rgb(255, 200, 0);
+    color: white;
+    /* background-color: rgb(0, 0, 0); */
+    background: url(https://www.toptal.com/designers/subtlepatterns/uploads/carbon_fibre.png) black;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 5px;
 }
 
 #links{
@@ -15,35 +16,40 @@ nav{
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    height: 41.6px;
+    justify-content: center;
 }
 
 #ham span{
     width: 30px;
     height: 3px;
     background-color: white;
-    margin: 3px;
+    margin: 4px;
 }
 
 #links ul{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: rgb(255, 200, 0);
+    background: url(https://www.toptal.com/designers/subtlepatterns/uploads/carbon_fibre.png) black;       
+    padding: 0;
 }
 
 #links ul li{
     list-style: none;
-    margin: 5px 10px;
+    margin: 0 10px;
+    text-align: center;
 }
 
 #links ul li a{
+    display: block;
     text-decoration: none;
     color: white;
     padding: 10px;
+    width: 100%;
 }
 
 #links ul li a:hover{
-    color: rgb(255, 132, 0);
+    color: black;
     background-color: white;
-    border-radius: 5px;
 }
