@@ -1,0 +1,33 @@
+#profile-page{
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+
+#img{
+    background-color: black;
+    width: 150px;
+    height: 150px;
+    border-radius:50% ;
+}
+
+#cont{
+    width: 100%;
+}
+#cont span{
+    display: block;
+    margin: auto;
+    width: fit-content;
+    margin-bottom: 3px;
+}
+#info{
+    height: 150px;
+    width: 100%;
+    margin: auto;
+    /* max-width: 600px; */
+    border: 2px dotted black ;
+}
