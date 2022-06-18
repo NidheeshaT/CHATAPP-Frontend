@@ -5,6 +5,9 @@ const socket =io("http://localhost")
 
 function Chat(){
 
+  let scroll={
+    "overflow-y ":"scroll"
+  }
   const [messages,setMessages]=useState([]);
   const [message,setMessage]=useState("");
 
@@ -24,10 +27,12 @@ function Chat(){
   return (
     <>
         <div id="chat-section">
-            <div id="chats">
-              {messages.map((ms,key)=>{
-                return(<div className={ms.al} key={key}>{ms.value}</div>)
-              })}
+            <div id="chat-wrap">
+              <div id="chats" style={scroll}>
+                {messages.map((ms,key)=>{
+                  return(<div className={ms.al} key={key}>{ms.value}</div>)
+                })}
+              </div>
             </div>
             <form id="message" onSubmit={getMessage}>
                 <input type="text" id="ms" value={message} onChange={event=>{setMessage(event.target.value)}} required/>

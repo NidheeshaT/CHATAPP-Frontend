@@ -1,11 +1,16 @@
 #chat-section{
     display: grid;
-    grid-template-rows: 600px 30px;
+    grid-template-rows: auto 30px;
     height: 100%;
     width: 100%;
 }
 
+#chat-wrap{
+    position: relative;
+}
+
 #chats{
+    position: absolute;
     overflow-y: scroll;
     width: 100%;
     margin: auto;
