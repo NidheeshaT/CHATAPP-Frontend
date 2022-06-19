@@ -24,6 +24,9 @@ function Chat(){
     setMessage("")
     socket.emit("message",{value:message,al:"left"});
   }
+  useEffect(()=>{
+    document.getElementById("chats").scrollTop=document.getElementById("chats").scrollHeight
+  },[messages])
   return (
     <>
         <div id="chat-section">
@@ -33,6 +36,7 @@ function Chat(){
                   return(<div className={ms.al} key={key}>{ms.value}</div>)
                 })}
               </div>
+
             </div>
             <form id="message" onSubmit={getMessage}>
                 <input type="text" id="ms" value={message} onChange={event=>{setMessage(event.target.value)}} required/>
