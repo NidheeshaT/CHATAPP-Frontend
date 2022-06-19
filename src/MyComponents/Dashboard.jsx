@@ -1,7 +1,8 @@
 import "./Dashboard.css"
 import Profile from "./Profile.jsx";
 import Chat from "./Chat.js"
-import {useState,useEffect} from "react"
+import {useState} from "react"
+import {Routes,Route} from "react-router-dom"
 
 function Dashboard(props){
 
@@ -42,8 +43,11 @@ function Dashboard(props){
 
       </aside>
       <section id="main-bar">
-        <Chat/>
-        {/* <Profile/> */}
+        <Routes>
+            <Route path="/" element={<Chat/>}/>
+            <Route path="profile" element={ <Profile/>}/>
+        </Routes>
+        {/* */}
       </section>
     </main>
   )

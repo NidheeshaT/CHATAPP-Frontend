@@ -1,7 +1,8 @@
 import './App.css';
-import Nav from './MyComponents/Nav.js'
+import Nav from './MyComponents/Nav.jsx'
 import Dashboard from './MyComponents/Dashboard';
 import {useState,useEffect} from "react"
+import {BrowserRouter} from "react-router-dom"
 
 function App() {
   const [smscreen,setScreen]=useState(1);
@@ -25,8 +26,10 @@ function App() {
 
   return (
     <>
-    <Nav sm={smscreen}/>
-    <Dashboard sm={smscreen}/>
+    <BrowserRouter>
+    	<Nav sm={smscreen}/>
+        <Dashboard sm={smscreen}/>
+    </BrowserRouter>
     </>
   );
 }

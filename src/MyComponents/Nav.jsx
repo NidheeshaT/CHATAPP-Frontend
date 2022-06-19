@@ -1,5 +1,6 @@
 import "./Nav.css"
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import {Link,Outlet} from "react-router-dom"
 
 
 
@@ -15,7 +16,7 @@ function Nav(props){
 		"width":"100%",
 		"left":"0px",
 		"top":"41.6px",
-		"alignItems":"stretch"
+		"aLinkgnItems":"stretch"
 	}
 	const [ham,hamSet]=useState(0);
 	let hamfunc=()=>{
@@ -36,10 +37,17 @@ function Nav(props){
 				<span></span>
 			</div>
 			<ul style={props.sm?ham?show:none:{}}>
-				<li><a href="/">Chat</a> </li>
-				<li><a href="/">About</a></li>	
-				<li><a href="/">Login</a></li>	
+				<li>
+					<Link to="/">Chat</Link> 
+				</li>
+				<li>
+					<Link to="/">About</Link> 
+				</li>
+				<li>
+					<Link to="/profile">Login</Link>	
+				</li>
 			</ul>
+			<Outlet/>
 		</div>
     </nav>
 
