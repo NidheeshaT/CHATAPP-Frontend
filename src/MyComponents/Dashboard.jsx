@@ -3,14 +3,13 @@ import Profile from "./Profile.jsx";
 import Chat from "./Chat.js"
 import {useState} from "react"
 import {Routes,Route} from "react-router-dom"
+import Login from "./Login";
 
 function Dashboard(props){
 
+  const [profile,SetProfile]=useState({name:"Nidheesha",description:"Hello there Im using walkietalkie"})
   let none={
     "display":"none"
-  }
-  let block={
-    "display":"block"
   }
   let blk={
     "backgroundColor":"black"
@@ -30,7 +29,14 @@ function Dashboard(props){
 		else
 			hamSet(1);
 	}
-
+  function Verify(){
+    if(profile) {
+      return(<Route path="profile" element={ <Profile profile={profile}/>}/>)
+    }
+    else{
+      return(<Route path="profile" element={ <Login/>}/>)
+    }
+  }
 
   return (
     <main>
@@ -45,12 +51,14 @@ function Dashboard(props){
       <section id="main-bar">
         <Routes>
             <Route path="/" element={<Chat/>}/>
-            <Route path="profile" element={ <Profile/>}/>
+            {Verify()}
         </Routes>
         {/* */}
       </section>
     </main>
   )
 }
+
+
 
 export default Dashboard;

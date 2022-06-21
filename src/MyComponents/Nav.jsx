@@ -41,9 +41,6 @@ function Nav(props){
 					<Link to="/">Chat</Link> 
 				</li>
 				<li>
-					<Link to="/">About</Link> 
-				</li>
-				<li>
 					<Link to="/profile">Login</Link>	
 				</li>
 			</ul>
