@@ -1,13 +1,14 @@
 import "./Dashboard.css"
 import Profile from "./Profile.jsx";
-import Chat from "./Chat.js"
+import Peoples from "./Peoples";
+
 import {useState} from "react"
 import {Routes,Route} from "react-router-dom"
 import Login from "./Login";
+import { render } from "@testing-library/react";
 
 function Dashboard(props){
 
-  const [profile,SetProfile]=useState({name:"Nidheesha",description:"Hello there Im using walkietalkie"})
   let none={
     "display":"none"
   }
@@ -30,14 +31,17 @@ function Dashboard(props){
 			hamSet(1);
 	}
   function Verify(){
-    if(profile) {
-      return(<Route path="profile" element={ <Profile profile={profile}/>}/>)
+    if(props.profile) {
+      return(<Route path="profile" element={ <Profile profile={props.profile}/>}/>)
     }
     else{
       return(<Route path="profile" element={ <Login/>}/>)
     }
   }
-
+  function render(ele)
+  {
+    return(ele)
+  }
   return (
     <main>
       <div id="ham" onClick={hamfunc} style={props.sm?hamStyle:none}>
@@ -46,14 +50,10 @@ function Dashboard(props){
 				<span style={blk}></span>
 			</div>
       <aside id="side-bar" style={props.sm?ham?show:none:{}}>
-
+        {render(props.left)}
       </aside>
       <section id="main-bar">
-        <Routes>
-            <Route path="/" element={<Chat/>}/>
-            {Verify()}
-        </Routes>
-        {/* */}
+        {render(props.right)}
       </section>
     </main>
   )

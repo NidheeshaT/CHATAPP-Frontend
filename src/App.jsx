@@ -1,8 +1,12 @@
 import './App.css';
 import Nav from './MyComponents/Nav.jsx'
 import Dashboard from './MyComponents/Dashboard';
+import Chat from "./MyComponents/Chat"
 import {useState,useEffect} from "react"
-import {BrowserRouter} from "react-router-dom"
+import {BrowserRouter,Route,Routes} from "react-router-dom"
+import Peoples from './MyComponents/Peoples';
+import Profile from './MyComponents/Profile';
+import Login from './MyComponents/Login';
 
 function App() {
   const [smscreen,setScreen]=useState(1);
@@ -22,13 +26,21 @@ function App() {
 			}
 		})
 	},[])
-
-
-  return (
+	const [profile,SetProfile]=useState({name:"Nidheesha",description:"Hello there Im using walkietalkie",friends:["Harry","Prajwal","Nagaraj","Satvik"]})
+	
+	return (
     <>
     <BrowserRouter>
-    	<Nav sm={smscreen}/>
-        <Dashboard sm={smscreen}/>
+    		<Nav sm={smscreen}/>
+		<Routes>
+        	<Route path="/"	element={<Dashboard sm={smscreen} left={<Peoples profile={profile}/>} right={<Chat/>} profile={profile}/>}/>
+			{
+				profile?<Route path="profile"	element={<Dashboard sm={smscreen} left={<></>} right={<Profile profile={profile}/>} profile={profile}/>}/>
+				:<Route path="profile"	element={<Dashboard sm={smscreen} left={<></>} right={<Login/>} profile={profile}/>}/>
+			}
+			
+
+		</Routes>
     </BrowserRouter>
     </>
   );

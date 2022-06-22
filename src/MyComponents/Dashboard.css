@@ -10,9 +10,9 @@ main{
     min-width: 300px;
     flex-shrink: 1;
     z-index: 1  ;
-    min-height: 600px;
-    border: 1px solid black;
-    background-color: black;
+    height: 600px;
+    background-color: rgb(167, 167, 167);
+    overflow-y: auto;
 }
 
 #main-bar{
@@ -20,6 +20,6 @@ main{
     min-width: 200px;
     flex-grow: 5;
     flex-shrink: 1;
-    min-height: 600px;
+    height: 600px;
     border: 1px solid black;
 }

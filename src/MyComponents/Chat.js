@@ -6,7 +6,7 @@ const socket =io("http://localhost")
 function Chat(){
 
   let scroll={
-    "overflow-y ":"scroll"
+    overflowY:"auto"
   }
   const [messages,setMessages]=useState([]);
   const [message,setMessage]=useState("");

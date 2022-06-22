@@ -1,0 +1,24 @@
+#card{
+    display:flex;
+    align-items: center;
+    width:100%;
+    background:linear-gradient(0deg,rgb(215, 214, 220),white);
+    height:50px;
+}
+
+#pic{
+    width:20px;
+    height:20px;
+    background-color:black;
+    border-radius:50%;
+    margin:0 5px;
+}
+
+#name{
+    margin: 0 10px;
+}
+
+#mscount{
+    color: white;
+    background-color: black;
+}
