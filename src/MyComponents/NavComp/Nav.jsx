@@ -4,7 +4,7 @@ import {Link,Outlet} from "react-router-dom"
 
 
 
-function Nav(props){
+function Nav({sm,profile}){
 	
 	let none={
 		"display":"none"
@@ -31,17 +31,21 @@ function Nav(props){
     <nav id="navbar">
 		<div id="logo">WT</div>
 		<div id="links">
-			<div id="ham" onClick={hamfunc} style={props.sm?{}:none}>
+			<div id="ham" onClick={hamfunc} style={sm?{}:none}>
 				<span></span>
 				<span></span>
 				<span></span>
 			</div>
-			<ul style={props.sm?ham?show:none:{}}>
+			<ul style={sm?ham?show:none:{}}>
 				<li>
 					<Link to="/">Chat</Link> 
 				</li>
 				<li>
-					<Link to="/profile">Login</Link>	
+					{profile?
+						<Link to="/profile">Profile</Link>	
+						:
+						<Link to="/login">Login</Link>	
+					}
 				</li>
 			</ul>
 			<Outlet/>

@@ -1,11 +1,6 @@
 import "./Dashboard.css"
-import Profile from "./Profile.jsx";
-import Peoples from "./Peoples";
 
 import {useState} from "react"
-import {Routes,Route} from "react-router-dom"
-import Login from "./Login";
-import { render } from "@testing-library/react";
 
 function Dashboard(props){
 
@@ -30,14 +25,6 @@ function Dashboard(props){
 		else
 			hamSet(1);
 	}
-  function Verify(){
-    if(props.profile) {
-      return(<Route path="profile" element={ <Profile profile={props.profile}/>}/>)
-    }
-    else{
-      return(<Route path="profile" element={ <Login/>}/>)
-    }
-  }
   function render(ele)
   {
     return(ele)

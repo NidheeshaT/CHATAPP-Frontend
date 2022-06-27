@@ -1,0 +1,20 @@
+#log{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    height:100%;
+}
+#log form{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+#log form div,#log  form button{
+    margin: 10px 0;
+}
+#log form div label{
+    display: inline-block;
+    width: 90px;
+}

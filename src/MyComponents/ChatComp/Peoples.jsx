@@ -5,7 +5,7 @@ function Peoples({profile}){
     return(
     <>
             {
-        profile.friends?
+        profile&& profile.friends?
         profile.friends.map((friend,key)=>{
             return(<People name={friend} key={key}/>)
         })

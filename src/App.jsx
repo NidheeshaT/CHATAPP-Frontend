@@ -1,12 +1,10 @@
 import './App.css';
-import Nav from './MyComponents/Nav.jsx'
-import Dashboard from './MyComponents/Dashboard';
-import Chat from "./MyComponents/Chat"
+import Nav from './MyComponents/NavComp/Nav'
+import ChatPage from "./MyComponents/ChatComp/ChatPage"
+import ProfilePage from './MyComponents/ProfileComp/ProfilePage';
+import LoginPage from './MyComponents/LoginComp/LoginPage';
 import {useState,useEffect} from "react"
-import {BrowserRouter,Route,Routes} from "react-router-dom"
-import Peoples from './MyComponents/Peoples';
-import Profile from './MyComponents/Profile';
-import Login from './MyComponents/Login';
+import {BrowserRouter,Navigate,Route,Routes} from "react-router-dom"
 
 function App() {
   const [smscreen,setScreen]=useState(1);
@@ -25,21 +23,23 @@ function App() {
 				setScreen(0);
 			}
 		})
+		setProfile(0)
+		// setProfile(JSON.parse( localStorage.getItem("profile")))
+		// console.log(JSON.parse( localStorage.getItem("profile")))
 	},[])
-	const [profile,SetProfile]=useState({name:"Nidheesha",description:"Hello there Im using walkietalkie",friends:["Harry","Prajwal","Nagaraj","Satvik"]})
+	const [profile,setProfile]=useState(()=>0)
 	
 	return (
     <>
     <BrowserRouter>
-    		<Nav sm={smscreen}/>
+    		<Nav sm={smscreen} profile={profile}/>
 		<Routes>
-        	<Route path="/"	element={<Dashboard sm={smscreen} left={<Peoples profile={profile}/>} right={<Chat/>} profile={profile}/>}/>
-			{
-				profile?<Route path="profile"	element={<Dashboard sm={smscreen} left={<></>} right={<Profile profile={profile}/>} profile={profile}/>}/>
-				:<Route path="profile"	element={<Dashboard sm={smscreen} left={<></>} right={<Login/>} profile={profile}/>}/>
-			}
+        	<Route path="/"	element={<ChatPage sm={smscreen} profile={profile}/>}/>
 			
-
+			<Route path="profile" element={profile?<ProfilePage sm={smscreen} profile={profile}/>:<Navigate to="/login"/>}/>
+			
+			<Route path="login"	element={profile?<Navigate to="/profile"/>:<LoginPage sm={smscreen} profile={profile} setProfile={setProfile}/>}/>
+			<Route path='*' element={<div>404 bad request</div>}/>
 		</Routes>
     </BrowserRouter>
     </>
