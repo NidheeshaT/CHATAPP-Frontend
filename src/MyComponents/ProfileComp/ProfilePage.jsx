@@ -2,10 +2,10 @@ import Dashboard from "../Dashboard";
 import Profile from "./Profile"
 
 
-function ProfilePage({smscreen,profile}){
+function ProfilePage({sm,profile}){
 
   return (
-    <Dashboard sm={smscreen} profile={profile} left={<></>} right={<Profile profile={profile}/>}/>
+    <Dashboard sm={sm} profile={profile} left={<></>} right={<Profile profile={profile}/>}/>
   )
 }
 

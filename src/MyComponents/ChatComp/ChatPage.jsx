@@ -4,10 +4,10 @@ import Chats from "./Chats";
 
 
 
-function ChatPage({smscreen,profile}){
+function ChatPage({sm,profile}){
 
   return (
-    <Dashboard sm={smscreen} profile={profile} left={<Peoples profile={profile}/>} right={<Chats/>}/>
+    <Dashboard sm={sm} profile={profile} left={<Peoples profile={profile}/>} right={<Chats/>}/>
   )
 }
 
