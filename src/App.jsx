@@ -23,10 +23,11 @@ function App() {
 				setScreen(0);
 			}
 		})
-		setProfile(0)
+		// setProfile(0)
 		// setProfile(JSON.parse( localStorage.getItem("profile")))
 		// console.log(JSON.parse( localStorage.getItem("profile")))
 	},[])
+	// const [profile,setProfile]=useState(()=>{return {name:"Nidheesha",friends:["hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo"]}})
 	const [profile,setProfile]=useState(()=>0)
 	
 	return (

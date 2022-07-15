@@ -1,8 +1,9 @@
 #card{
+    color: whitesmoke;
     display:flex;
     align-items: center;
     width:100%;
-    background:linear-gradient(0deg,rgb(215, 214, 220),white);
+    border-bottom: 3px dashed #1b3690;
     height:50px;
 }
 

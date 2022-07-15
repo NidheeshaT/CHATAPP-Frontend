@@ -1,7 +1,6 @@
 import "./Login.css"
 import { useState } from "react";
 import {Navigate} from "react-router-dom"
-
 function Login({profile,setProfile}){
 
   const [email,setEmail]=useState("")
@@ -11,9 +10,29 @@ function Login({profile,setProfile}){
     e.preventDefault()
     // setProfile({name:email,friends:["harry"]})
     // localStorage.setItem("profile", JSON.stringify({name:email,friends:["harry"]}))
-    let res=await fetch("http://localhost/login")
+    let res=await fetch("/login", {
+      method: 'POST',
+      mode:"cors",
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify({email:email,password:password}),
+      withCredentials:true
+    })
+
+    console.log(res)
+
     let k=await res.json()
-    setProfile(k)
+    if(k.error)
+    {
+      console.log(k)
+
+    }
+
+    else{
+      setProfile(k)
+
+    }
 
   }
 
