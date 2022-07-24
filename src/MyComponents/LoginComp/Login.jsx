@@ -10,14 +10,15 @@ function Login({profile,setProfile}){
     e.preventDefault()
     // setProfile({name:email,friends:["harry"]})
     // localStorage.setItem("profile", JSON.stringify({name:email,friends:["harry"]}))
-    let res=await fetch("/login", {
+    let res=await fetch("http://localhost:80/login", {
       method: 'POST',
       mode:"cors",
       headers: {
-        'Content-Type': 'application/json;charset=utf-8'
+        'Content-Type': 'application/json;charset=utf-8',
+        "Access-Control-Allow-Origin":true
       },
       body: JSON.stringify({email:email,password:password}),
-      withCredentials:true
+      credentials:"include"
     })
 
     console.log(res)
@@ -26,12 +27,10 @@ function Login({profile,setProfile}){
     if(k.error)
     {
       console.log(k)
-
     }
 
     else{
       setProfile(k)
-
     }
 
   }

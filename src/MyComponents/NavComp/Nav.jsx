@@ -38,13 +38,13 @@ function Nav({sm,profile}){
 			</div>
 			<ul style={sm?ham?show:none:{}}>
 				<li>
-					<Link to="/">Chat</Link> 
+					<Link to="/" onClick={()=>hamSet(0)}>Chat</Link> 
 				</li>
 				<li>
 					{profile?
-						<Link to="/profile">Profile</Link>	
+						<Link to="/profile" onClick={()=>hamSet(0)}>Profile</Link>	
 						:
-						<Link to="/login">Login</Link>	
+						<Link to="/login" onClick={()=>hamSet(0)}>Login</Link>	
 					}
 				</li>
 			</ul>
