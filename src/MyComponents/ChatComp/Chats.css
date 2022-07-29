@@ -11,7 +11,7 @@
 
 #chats{
     position: absolute;
-    overflow-y: scroll;
+    overflow-y: auto;
     width: 100%;
     margin: auto;
     height: 100%;

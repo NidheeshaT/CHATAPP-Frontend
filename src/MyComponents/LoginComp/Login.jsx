@@ -1,8 +1,12 @@
 import "./Login.css"
 import { useState } from "react";
 import {Navigate} from "react-router-dom"
-function Login({profile,setProfile}){
+import { useContext } from "react";
+import { profileContext } from "../../contexts/profile";
 
+function Login(){
+
+  const [profile,setProfile]=useContext(profileContext)
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
 
@@ -39,6 +43,7 @@ function Login({profile,setProfile}){
     <>
         <section id="log">
             <form onSubmit={verifyData}>
+                <div style={{marginTop:'0'}}>LOGIN:</div>
                 <div>
                   <label htmlFor="useremail">Email:
                   </label>

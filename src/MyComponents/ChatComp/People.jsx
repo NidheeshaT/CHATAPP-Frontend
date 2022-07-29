@@ -1,15 +1,14 @@
 import "./People.css"
 
-function People(props){
-
+function People({name,ChangeView}){
 
   return (
     <>
-      <div id="card">
+      <div id="card" onClick={()=>ChangeView(()=>1)}>
         <div id="pic">
 
         </div>
-        <h5 id="name">{props.name}</h5>
+        <h5 id="name">{name}</h5>
         <div id="mscount"></div>
       </div>
     </>

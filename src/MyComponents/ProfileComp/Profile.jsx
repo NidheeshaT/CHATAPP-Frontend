@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { profileContext } from "../../contexts/profile";
 import "./Profile.css"
 
-function Profile({profile}){
+function Profile(){
+  const [profile]=useContext(profileContext)
   return (
     <>
       <section id="profile-page">

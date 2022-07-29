@@ -3,38 +3,74 @@ import {React,useEffect,useState} from "react"
 import { io } from "socket.io-client"
 const socket =io("http://localhost")
 
-function Chat(){
+function Chat({view}){
 
-  let scroll={
-    overflowY:"auto"
-  }
-  const [messages,setMessages]=useState([]);
+  const [messages,setMessages]=useState([{name:1,messages:[]}]);
   const [message,setMessage]=useState("");
+  const [curchat,setCurchat]=useState([{}])
 
   useEffect(()=>{
-    socket.on("m",(data)=>{
-      setMessages((prev)=>[...prev,data]);
-      console.log("hi")
+    socket.on("m",(getData)=>{
+      const name=getData.name
+      setMessages((prev)=>{
+        let i=prev.findIndex((ele)=>ele.name=name)
+        if(i!==-1)
+        {
+          prev[i].messages.push(getData.data)
+        }
+        return prev
+      });
+      
+      if(name===view)
+      {
+        setCurchat((prev)=>{
+        if(prev)
+          return [...prev,getData.data]
+        else
+          return [getData.data]})
+      }
     })
   },[])
 
-  const getMessage= (e)=>{
+  const getMessage=(e)=>{
     e.preventDefault()
-    setMessages((prev)=>[...prev,{value:message,al:"right"}]);
+    setMessages((prev)=>{
+      let i=prev.findIndex((ele)=>ele.name=view)
+        if(i!==-1)
+        {
+          prev[i].messages.push({message:message,al:"right"})
+        }
+        return prev
+    });
+    setCurchat((prev)=>
+    {
+      if(prev)
+      return [...prev,{value:message,al:"right"}]
+      else
+        return [{value:message,al:"right"}]}
+    
+    )
     setMessage("")
-    socket.emit("message",{value:message,al:"left"});
+    socket.emit("message",message);
   }
   useEffect(()=>{
     document.getElementById("chats").scrollTop=document.getElementById("chats").scrollHeight
-  },[messages])
+  },[curchat])
+
+  useEffect(()=>{
+    let temp=[]
+    messages.map((ele)=>ele.name===view?temp=ele.name.messages:0)
+    console.log(messages,view)
+    setCurchat(()=>temp)
+  },[view] )
   return (
     <>
         <div id="chat-section">
             <div id="chat-wrap">
-              <div id="chats" style={scroll}>
-                {messages.map((ms,key)=>{
+              <div id="chats">
+                {curchat?curchat.map((ms,key)=>{
                   return(<div className={ms.al} key={key}>{ms.value}</div>)
-                })}
+                }):<h1>Type to chat</h1>}
               </div>
 
             </div>

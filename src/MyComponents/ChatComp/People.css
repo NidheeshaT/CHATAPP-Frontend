@@ -4,6 +4,11 @@
     width:100%;
     border-bottom: 3px dashed #1b3690;
     height:50px;
+    cursor: pointer;
+}
+
+#card:hover{
+    backdrop-filter: grayscale(1);
 }
 
 #pic{

@@ -1,13 +1,18 @@
 import "./Peoples.css"
 import People from "./People"
+import { profileContext } from "../../contexts/profile"
+import { useContext } from "react"
 
-function Peoples({profile}){
+
+function Peoples({ChangeView}){
+    const [profile]=useContext(profileContext)
+    console.log(profile)
     return(
     <>
             {
-        profile&& profile.friends&&profile.friends!==[]?
+        profile&& profile.friends&& profile.friends!==[]?
         profile.friends.map((friend,key)=>{
-            return(<People name={friend} key={key}/>)
+            return(<People name={friend} key={key} ChangeView={ChangeView}/>)
         })
         :<div style={{textAlign:"center"}}>No friends</div>
       }

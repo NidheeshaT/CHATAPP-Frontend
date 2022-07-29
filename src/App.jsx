@@ -1,10 +1,12 @@
 import './App.css';
-import Nav from './MyComponents/NavComp/Nav'
-import ChatPage from "./MyComponents/ChatComp/ChatPage"
-import ProfilePage from './MyComponents/ProfileComp/ProfilePage';
-import LoginPage from './MyComponents/LoginComp/LoginPage';
+import Nav from './utilities/NavComp/Nav'
+import ChatPage from "./Pages/ChatPage"
+import ProfilePage from './Pages/ProfilePage';
+import LoginPage from './Pages/LoginPage';
 import {useState,useEffect} from "react"
 import {BrowserRouter,Navigate,Route,Routes} from "react-router-dom"
+import {profileContext} from "./contexts/profile"
+import {smContext} from "./contexts/smallscreen"
 
 function App() {
   const [smscreen,setScreen]=useState(1);
@@ -30,17 +32,21 @@ function App() {
 	
 	return (
     <>
+	<profileContext.Provider value={[profile,setProfile]}>
+	<smContext.Provider value={[smscreen,setScreen]}>
     <BrowserRouter>
-    		<Nav sm={smscreen} profile={profile}/>
+    		<Nav/>
 		<Routes>
-        	<Route path="/"	element={<ChatPage sm={smscreen} profile={profile}/>}/>
+        	<Route path="/"	element={<ChatPage/>}/>
 			
-			<Route path="profile" element={profile?<ProfilePage sm={smscreen} profile={profile}/>:<Navigate to="/login"/>}/>
+			<Route path="profile" element={profile?<ProfilePage/>:<Navigate to="/login"/>}/>
 			
-			<Route path="login"	element={profile?<Navigate to="/profile"/>:<LoginPage sm={smscreen} profile={profile} setProfile={setProfile}/>}/>
+			<Route path="login"	element={profile?<Navigate to="/profile"/>:<LoginPage/>}/>
 			<Route path='*' element={<div>404 bad request</div>}/>
 		</Routes>
     </BrowserRouter>
+	</smContext.Provider>
+	</profileContext.Provider>
     </>
   );
 }

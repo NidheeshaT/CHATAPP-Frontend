@@ -1,11 +1,17 @@
 import "./Nav.css"
 import { useState } from "react";
 import {Link,Outlet} from "react-router-dom"
+import { useContext } from "react";
+// import Profile from "../ProfileComp/Profile";
+import {profileContext} from "../../contexts/profile" 
+import {smContext} from "../../contexts/smallscreen" 
 
 
 
-function Nav({sm,profile}){
+function Nav(){
 	
+	const [profile]=useContext(profileContext)
+	const [sm]=useContext(smContext)
 	let none={
 		"display":"none"
 	}

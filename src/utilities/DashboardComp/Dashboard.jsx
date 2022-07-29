@@ -1,8 +1,12 @@
 import "./Dashboard.css"
+import { smContext } from "../../contexts/smallscreen"
+import { useContext } from "react"
 
 import {useState} from "react"
 
 function Dashboard(props){
+
+	const [sm]=useContext(smContext)
 
   let none={
     "display":"none"
@@ -31,12 +35,12 @@ function Dashboard(props){
   }
   return (
     <main>
-      <div id="ham" onClick={hamfunc} style={props.sm?hamStyle:none}>
+      <div id="ham" onClick={hamfunc} style={sm?hamStyle:none}>
 				<span style={blk}></span>
 				<span style={blk}></span>
 				<span style={blk}></span>
 			</div>
-      <aside id="side-bar" style={props.sm?ham?show:none:{}}>
+      <aside id="side-bar" style={sm?ham?show:none:{}}>
         {render(props.left)}
       </aside>
       <section id="main-bar">
