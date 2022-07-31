@@ -1,19 +1,21 @@
 import Dashboard from "../utilities/DashboardComp/Dashboard";
-import Peoples from "../MyComponents/ChatComp/Peoples";
+import List from "../MyComponents/ChatComp/List";
+import People from "../MyComponents/ChatComp/People";
 import Chats from "../MyComponents/ChatComp/Chats";
 import NoChats from "../MyComponents/ChatComp/NoChats";
 import { useState } from "react";
+import SearchBar from "../utilities/Searchbar";
+import { useContext } from "react";
+import { profileContext } from "../contexts/profile";
 
 
 function ChatPage(){  
   const [view,ChangeView]=useState(()=>0)
+  const [profile]=useContext(profileContext)
 
   return (
-    <>
-    
-      {view?<Dashboard left={<Peoples view={view} ChangeView={ChangeView}/>} right={<Chats view={view}/>}/>
-      : 
-      <Dashboard left={<Peoples view={view} ChangeView={ChangeView}/>} right={<NoChats/>}/>}
+    <>  
+      <Dashboard topleft={<SearchBar/>}  left={<List comp={People} render={profile.friends} ChangeView={ChangeView} empty={"No friends"}/>} right={view?<Chats view={view}/>:<NoChats/>}/>
     </>
   )
 }

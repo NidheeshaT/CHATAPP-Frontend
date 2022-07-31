@@ -8,7 +8,7 @@
 }
 
 #card:hover{
-    backdrop-filter: grayscale(1);
+    backdrop-filter:grayscale(1);
 }
 
 #pic{

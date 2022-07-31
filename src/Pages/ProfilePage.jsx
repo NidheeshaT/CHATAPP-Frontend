@@ -5,7 +5,7 @@ import Profile from "../MyComponents/ProfileComp/Profile"
 function ProfilePage(){
 
   return (
-    <Dashboard left={<></>} right={<Profile/>}/>
+    <Dashboard right={<Profile/>}/>
   )
 }
 

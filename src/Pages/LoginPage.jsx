@@ -5,7 +5,7 @@ import Login from "../MyComponents/LoginComp/Login"
 function LoginPage(){
 
   return (
-    <Dashboard left={<></>} right={<Login/>}/>
+    <Dashboard right={<Login/>}/>
   )
 }
 

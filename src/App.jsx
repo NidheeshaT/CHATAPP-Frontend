@@ -3,6 +3,7 @@ import Nav from './utilities/NavComp/Nav'
 import ChatPage from "./Pages/ChatPage"
 import ProfilePage from './Pages/ProfilePage';
 import LoginPage from './Pages/LoginPage';
+import RegisterPage from './Pages/RegisterPage'
 import {useState,useEffect} from "react"
 import {BrowserRouter,Navigate,Route,Routes} from "react-router-dom"
 import {profileContext} from "./contexts/profile"
@@ -27,8 +28,8 @@ function App() {
 		})
 		// setProfile(0)
 	},[])
-	// const [profile,setProfile]=useState(()=>{return {name:"Nidheesha",friends:["hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo"]}})
-	const [profile,setProfile]=useState(()=>0)
+	const [profile,setProfile]=useState(()=>{return {name:"Nidheesha",friends:["hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo"]}})
+	// const [profile,setProfile]=useState(()=>0)
 	
 	return (
     <>
@@ -42,6 +43,7 @@ function App() {
 			<Route path="profile" element={profile?<ProfilePage/>:<Navigate to="/login"/>}/>
 			
 			<Route path="login"	element={profile?<Navigate to="/profile"/>:<LoginPage/>}/>
+			{/* <Route path="login"	element={profile?<Navigate to="/profile"/>:<RegisterPage/>}/> */}
 			<Route path='*' element={<div>404 bad request</div>}/>
 		</Routes>
     </BrowserRouter>

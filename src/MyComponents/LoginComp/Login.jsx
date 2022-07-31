@@ -41,9 +41,9 @@ function Login(){
 
   return (
     <>
-        <section id="log">
+        <section className="form">
             <form onSubmit={verifyData}>
-                <div style={{marginTop:'0'}}>LOGIN:</div>
+                <div className="form-caption">LOGIN:</div>
                 <div>
                   <label htmlFor="useremail">Email:
                   </label>

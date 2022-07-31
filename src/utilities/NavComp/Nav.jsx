@@ -22,7 +22,8 @@ function Nav(){
 		"width":"100%",
 		"left":"0px",
 		"top":"41.6px",
-		"aLinkgnItems":"stretch"
+		"alignItems":"stretch",
+		"padding":"10px 0px"
 	}
 	const [ham,hamSet]=useState(0);
 	let hamfunc=()=>{

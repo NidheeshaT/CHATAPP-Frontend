@@ -3,3 +3,12 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+html{
+    height: 100%;
+}
+
+body{
+    background: url('./jellyfish-2121429.jpg') center center/cover blue;
+    height: inherit;
+}
