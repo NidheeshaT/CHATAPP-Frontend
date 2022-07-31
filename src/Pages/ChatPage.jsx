@@ -1,5 +1,5 @@
 import Dashboard from "../utilities/DashboardComp/Dashboard";
-import List from "../MyComponents/ChatComp/List";
+import List from "../utilities/List";
 import People from "../MyComponents/ChatComp/People";
 import Chats from "../MyComponents/ChatComp/Chats";
 import NoChats from "../MyComponents/ChatComp/NoChats";

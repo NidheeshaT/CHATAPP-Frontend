@@ -1,7 +1,3 @@
-import People from "./People"
-import { profileContext } from "../../contexts/profile"
-import { useContext } from "react"
-
 
 function Peoples({render,comp:Comp,ChangeView,empty}){
     return(
