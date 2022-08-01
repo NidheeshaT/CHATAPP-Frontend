@@ -9,6 +9,28 @@ html{
 }
 
 body{
-    background: url('./jellyfish-2121429.jpg') center center/cover blue;
+    background: url('./Fade-In-Background.svg') rgba(131, 69, 255, 0.897) center center/cover ;
+    backdrop-filter: blur(2px);
+    background-blend-mode: lighten;
     height: inherit;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+
+
+.rotate1{
+    animation: rotate 2s ease-in-out 0s infinite ;
+}
+.rotate2{
+    animation: rotate 2s ease-in-out  2s infinite ;
+}
+.rotate3{
+    animation: rotate 2s ease-in-out 4s infinite ;
 }

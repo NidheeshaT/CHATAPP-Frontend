@@ -2,13 +2,13 @@
     display:flex;
     align-items: center;
     width:100%;
-    border-bottom: 3px dashed #1b3690;
+    border-bottom: 3px double #1b3690;
     height:50px;
     cursor: pointer;
 }
 
 #card:hover{
-    backdrop-filter:grayscale(1);
+    background-color: rgb(114, 0, 148);
 }
 
 #pic{

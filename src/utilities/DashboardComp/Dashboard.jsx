@@ -3,10 +3,16 @@ import { smContext } from "../../contexts/smallscreen"
 import { useContext } from "react"
 
 import {useState} from "react"
+import { useEffect } from "react"
 
 function Dashboard(props){
 
 	const [sm]=useContext(smContext)
+
+  useEffect(()=>{
+    document.querySelector('main').style.height=window.visualViewport.height-41.6+'px'
+  },[])
+ 
 
   let none={
     "display":"none"
@@ -30,16 +36,16 @@ function Dashboard(props){
     return(ele)
   }
   return (
-    <main style={props.left?sm?{gridTemplateColumns:"40px 1fr"}:{}:{display:"block"}}>
+    <main style={props.left?sm?{gridTemplateColumns:"40px 1fr"}:{}:{gridTemplateRows:"auto"}}>
       <div id="ham" onClick={hamfunc} style={props.left&&sm?{}:none}>
 				<span style={blk}></span>
 				<span style={blk}></span>
 				<span style={blk}></span>
 			</div>
-      <aside id="top-left" style={sm?ham?{}:none:{}}>
+      <aside id="top-left" style={props.topleft?sm?ham?{}:none:{}:none}>
         {render(props.topleft)}
       </aside>
-      <section id="top-right" style={sm?ham?none:{}:{}}>
+      <section id="top-right" style={props.topright?sm?ham?none:{}:{}:none}>
         {render(props.topright)}
       </section>
 

@@ -25,11 +25,12 @@ function App() {
 			else{
 				setScreen(0);
 			}
+			document.querySelector('main').style.height=window.visualViewport.height-41.6+'px'
 		})
 		// setProfile(0)
 	},[])
-	const [profile,setProfile]=useState(()=>{return {name:"Nidheesha",friends:["hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo"]}})
-	// const [profile,setProfile]=useState(()=>0)
+	// const [profile,setProfile]=useState(()=>{return {name:"Nidheesha",friends:["hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo"]}})
+	const [profile,setProfile]=useState(()=>0)
 	
 	return (
     <>

@@ -7,6 +7,7 @@ import { useState } from "react";
 import SearchBar from "../utilities/Searchbar";
 import { useContext } from "react";
 import { profileContext } from "../contexts/profile";
+import Loading from "../utilities/Loading";
 
 
 function ChatPage(){  
@@ -15,7 +16,7 @@ function ChatPage(){
 
   return (
     <>  
-      <Dashboard topleft={<SearchBar/>}  left={<List comp={People} render={profile.friends} ChangeView={ChangeView} empty={"No friends"}/>} right={view?<Chats view={view}/>:<NoChats/>}/>
+      <Dashboard topleft={<SearchBar/>} topright={<Loading/>}  left={<List comp={People} render={profile.friends} ChangeView={ChangeView} empty={"No friends"}/>} right={view?<Chats view={view}/>:<NoChats/>}/>
     </>
   )
 }

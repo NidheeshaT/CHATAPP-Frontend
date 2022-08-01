@@ -3,6 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: inherit;
+    height: 100%;
     width: 100%;
 }
