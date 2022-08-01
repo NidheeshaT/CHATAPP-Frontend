@@ -10,7 +10,7 @@ function Dashboard(props){
 	const [sm]=useContext(smContext)
 
   useEffect(()=>{
-    document.querySelector('main').style.height=window.visualViewport.height-41.6+'px'
+    document.querySelector('main').style.height=window.visualViewport.height-45.6+'px'
   },[])
  
 

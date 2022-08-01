@@ -25,7 +25,7 @@ function App() {
 			else{
 				setScreen(0);
 			}
-			document.querySelector('main').style.height=window.visualViewport.height-41.6+'px'
+			document.querySelector('main').style.height=window.visualViewport.height-45.6+'px'
 		})
 		// setProfile(0)
 	},[])
