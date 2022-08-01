@@ -8,6 +8,7 @@ import {useState,useEffect} from "react"
 import {BrowserRouter,Navigate,Route,Routes} from "react-router-dom"
 import {profileContext} from "./contexts/profile"
 import {smContext} from "./contexts/smallscreen"
+import PeoplePage from './Pages/PeoplePage';
 
 function App() {
   const [smscreen,setScreen]=useState(1);
@@ -29,8 +30,8 @@ function App() {
 		})
 		// setProfile(0)
 	},[])
-	// const [profile,setProfile]=useState(()=>{return {name:"Nidheesha",friends:["hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo"]}})
-	const [profile,setProfile]=useState(()=>0)
+	const [profile,setProfile]=useState(()=>{return {name:"Nidheesha",friends:["hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo"]}})
+	// const [profile,setProfile]=useState(()=>0)
 	
 	return (
     <>
@@ -41,6 +42,7 @@ function App() {
 		<Routes>
         	<Route path="/"	element={<ChatPage/>}/>
 			
+			<Route path="people" element={<PeoplePage/>}/>
 			<Route path="profile" element={profile?<ProfilePage/>:<Navigate to="/login"/>}/>
 			
 			<Route path="login"	element={profile?<Navigate to="/profile"/>:<LoginPage/>}/>

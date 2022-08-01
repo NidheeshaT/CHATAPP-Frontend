@@ -48,6 +48,9 @@ function Nav(){
 					<Link to="/" onClick={()=>hamSet(0)}>Chat</Link> 
 				</li>
 				<li>
+					<Link to="/people" onClick={()=>hamSet(0)}>People</Link> 
+				</li>
+				<li>
 					{profile?
 						<Link to="/profile" onClick={()=>hamSet(0)}>Profile</Link>	
 						:

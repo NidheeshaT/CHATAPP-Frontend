@@ -21,7 +21,6 @@ function Dashboard(props){
     "backgroundColor":"black"
   }
   let show={
-		"width":"100%",
     "gridColumn":"1/span2"
 	}
   const [ham,hamSet]=useState(0);
@@ -36,7 +35,7 @@ function Dashboard(props){
     return(ele)
   }
   return (
-    <main style={props.left?sm?{gridTemplateColumns:"40px 1fr"}:{}:{gridTemplateRows:"auto"}}>
+    <main style={props.topright?sm?{gridTemplateColumns:"40px 1fr"}:{}:{gridTemplateRows:"auto"}}>
       <div id="ham" onClick={hamfunc} style={props.left&&sm?{}:none}>
 				<span style={blk}></span>
 				<span style={blk}></span>
@@ -45,7 +44,7 @@ function Dashboard(props){
       <aside id="top-left" style={props.topleft?sm?ham?{}:none:{}:none}>
         {render(props.topleft)}
       </aside>
-      <section id="top-right" style={props.topright?sm?ham?none:{}:{}:none}>
+      <section id="top-right" style={props.topright?props.left?sm?ham?none:{}:{}:show:none}>
         {render(props.topright)}
       </section>
 

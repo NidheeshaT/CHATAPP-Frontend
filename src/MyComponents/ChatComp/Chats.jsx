@@ -1,6 +1,7 @@
 import "./Chats.css"
 import {React,useEffect,useState} from "react"
 import { io } from "socket.io-client"
+import InputBar from "../../utilities/InputBar"
 const socket =io("http://localhost")
 
 function Chat({view}){
@@ -74,10 +75,7 @@ function Chat({view}){
               </div>
 
             </div>
-            <form id="message" onSubmit={getMessage}>
-                <input type="text" id="ms" value={message} onChange={event=>{setMessage(event.target.value)}} required/>
-                <button type="submit" id="btn">Send</button>
-            </form>
+            <InputBar btn='Send' result={getMessage} value={message} setValue={setMessage}/>
         </div>
 
     </>

@@ -1,11 +1,11 @@
 
-function Peoples({render,comp:Comp,ChangeView,empty}){
+function List({render,control,comp:Comp,ChangeView,empty}){
     return(
     <>
             {
         render&&render!==[]?
         render.map((ele,key)=>{
-            return( <Comp name={ele} key={key} ChangeView={ChangeView}/>)
+            return( <Comp ele={ele} control={control} key={key} ChangeView={ChangeView}/>)
         })
         :<div style={{textAlign:"center"}}>{empty}</div>
       }
@@ -14,4 +14,4 @@ function Peoples({render,comp:Comp,ChangeView,empty}){
 
 }
 
-export default Peoples;
+export default List;

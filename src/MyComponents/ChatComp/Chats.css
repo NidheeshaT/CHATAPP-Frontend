@@ -1,6 +1,6 @@
 #chat-section{
     display: grid;
-    grid-template-rows: auto 30px;
+    grid-template-rows: auto max-content;
     height: 100%;
     width: 100%;
 }
