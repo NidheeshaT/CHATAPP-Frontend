@@ -1,6 +1,6 @@
 nav{
     color: white;
-    background: url(https://www.toptal.com/designers/subtlepatterns/uploads/carbon_fibre.png) black;
+    background: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,7 +31,7 @@ nav{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background: url(https://www.toptal.com/designers/subtlepatterns/uploads/carbon_fibre.png) black;
+    background:black;
     z-index: 2;
 }
 

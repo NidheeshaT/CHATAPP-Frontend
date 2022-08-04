@@ -8,12 +8,10 @@ function Profile(){
     <>
       <section id="profile-page">
           <div id="img"></div>
-          <h3>{profile.name}</h3>
-		  <div><span>Description:</span>{profile.description}</div>
-		  <div id="cont">
-		  	<span>Usage info:</span>
-			<div  id="info"></div>
-		  </div>
+          <div className='cont'><h3>Name:</h3><span>{profile.name}</span></div>
+          <div className='cont'><h3>Nickname:</h3><span>{profile.nickname}</span></div>
+          <div className='cont'><h3>Email:</h3><span>{profile.email}</span></div>
+          <div className='cont' style={{alignItems:"center"}}><h3>Description:</h3><span>{profile.description}</span></div>
       </section>
 
     </>

@@ -3,38 +3,28 @@ import { useState } from "react";
 import {Navigate} from "react-router-dom"
 import { useContext } from "react";
 import { profileContext } from "../../contexts/profile";
+import { displayContext } from "../../contexts/display";
+import socket from "../../contollers/socket"
+import fetchData from "../../contollers/fetch"
 
 function Login(){
 
   const [profile,setProfile]=useContext(profileContext)
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
+  const [display,setDisplay]=useContext(displayContext)
 
   const  verifyData= async (e)=>{
     e.preventDefault()
-    // setProfile({name:email,friends:["harry"]})
-    // localStorage.setItem("profile", JSON.stringify({name:email,friends:["harry"]}))
-    let res=await fetch("http://localhost:80/login", {
-      method: 'POST',
-      mode:"cors",
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-        "Access-Control-Allow-Origin":true
-      },
-      body: JSON.stringify({email:email,password:password}),
-      credentials:"include"
-    })
+    let res=await fetchData("login",{email:email,password:password})
 
-    console.log(res)
-
-    let k=await res.json()
-    if(k.error)
+    if(res.error)
     {
-      console.log(k)
+      setDisplay({type:'r',msg:res.error})
     }
-
     else{
-      setProfile(k)
+      setProfile(res)
+      socket.connect()
     }
 
   }

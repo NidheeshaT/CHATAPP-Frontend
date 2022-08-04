@@ -1,34 +1,35 @@
 import "./Chats.css"
-import {React,useEffect,useState} from "react"
-import { io } from "socket.io-client"
+import {React,useContext,useEffect,useState} from "react"
 import InputBar from "../../utilities/InputBar"
-const socket =io("http://localhost")
+import socket from "../../contollers/socket"
+import {messageContext} from "../../contexts/messageContext"
 
 function Chat({view}){
 
-  const [messages,setMessages]=useState([{name:1,messages:[]}]);
+  const [messages,setMessages]=useContext(messageContext);
   const [message,setMessage]=useState("");
   const [curchat,setCurchat]=useState([{}])
 
   useEffect(()=>{
-    socket.on("m",(getData)=>{
-      const name=getData.name
+    socket.on("message",(from,data)=>{
       setMessages((prev)=>{
-        let i=prev.findIndex((ele)=>ele.name=name)
-        if(i!==-1)
+        if(!prev[from])
         {
-          prev[i].messages.push(getData.data)
+          prev[from]=[data]
+        }
+        else{
+          prev[from].push(data)
         }
         return prev
       });
       
-      if(name===view)
+      if(from===view)
       {
         setCurchat((prev)=>{
         if(prev)
-          return [...prev,getData.data]
+          return [...prev,data]
         else
-          return [getData.data]})
+          return [data]})
       }
     })
   },[])
@@ -36,23 +37,27 @@ function Chat({view}){
   const getMessage=(e)=>{
     e.preventDefault()
     setMessages((prev)=>{
-      let i=prev.findIndex((ele)=>ele.name=view)
-        if(i!==-1)
-        {
-          prev[i].messages.push({message:message,al:"right"})
-        }
-        return prev
+      const data={message:message,al:"right"}
+      if(!prev[view])
+      {
+        prev[view]=[data]
+      }
+      else{
+        prev[view].push(data)
+      }
+      return prev
     });
     setCurchat((prev)=>
     {
       if(prev)
-      return [...prev,{value:message,al:"right"}]
+      return [...prev,{message:message,al:"right"}]
       else
-        return [{value:message,al:"right"}]}
+        return [{message:message,al:"right"}]
+    }
     
     )
+    socket.emit("message",view,message);
     setMessage("")
-    socket.emit("message",message);
   }
   useEffect(()=>{
     document.getElementById("chats").scrollTop=document.getElementById("chats").scrollHeight
@@ -60,8 +65,7 @@ function Chat({view}){
 
   useEffect(()=>{
     let temp=[]
-    messages.map((ele)=>ele.name===view?temp=ele.name.messages:0)
-    console.log(messages,view)
+    messages[view]?temp=messages[view]:temp=[]
     setCurchat(()=>temp)
   },[view] )
   return (
@@ -70,7 +74,7 @@ function Chat({view}){
             <div id="chat-wrap">
               <div id="chats">
                 {curchat?curchat.map((ms,key)=>{
-                  return(<div className={ms.al} key={key}>{ms.value}</div>)
+                  return(<div className={ms.al} key={key}>{ms.message}</div>)
                 }):<h1>Type to chat</h1>}
               </div>
 

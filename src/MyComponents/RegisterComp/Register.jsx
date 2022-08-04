@@ -2,52 +2,61 @@ import { useState } from "react";
 import {Navigate} from "react-router-dom"
 import { useContext } from "react";
 import { profileContext } from "../../contexts/profile";
+import { displayContext } from "../../contexts/display";
+import fetchData from "../../contollers/fetch"
 
 function Register(){
 
   const [profile,setProfile]=useContext(profileContext)
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
+  const [cpassword,setcPassword]=useState("")
   const [nickname,setNickname]=useState("")
   const [Name,setName]=useState("")
+
+  const [display,setDisplay]=useContext(displayContext)
   const [next,setNext]=useState(()=>0)
 
   const  verifyData= async (e)=>{
     e.preventDefault()
-    // // setProfile({name:email,friends:["harry"]})
-    // // localStorage.setItem("profile", JSON.stringify({name:email,friends:["harry"]}))
-    // let res=await fetch("http://localhost:80/login", {
-    //   method: 'POST',
-    //   mode:"cors",
-    //   headers: {
-    //     'Content-Type': 'application/json;charset=utf-8',
-    //     "Access-Control-Allow-Origin":true
-    //   },
-    //   body: JSON.stringify({email:email,password:password}),
-    //   credentials:"include"
-    // })
-
-    // console.log(res)
-
-    // let k=await res.json()
-    // if(k.error)
-    // {
-    //   console.log(k)
-    // }
-
-    // else{
-    //   setProfile(k)
-    // }
+    if(cpassword!==password)
+    {
+      setDisplay({type:'r',msg:'Passwords are not matching'})
+      return;
+    }
+    let res=await fetchData("register",{nickname:nickname,name:Name,email:email,password:password})
+    if(res.error)
+    {
+      setDisplay({type:'r',msg:res.error})
+    }
+    else{
+      setProfile(res)
+    }
 
   }
 
-  const verifyNickname=(e)=>{
+  const verifyNickname=async (e)=>{
     e.preventDefault()
-    setNext(1)
+    let res=await fetchData("checknickname",{nickname:nickname})
+    if(res.error)
+    {
+      setDisplay({type:'r',msg:res.error})
+    }
+    else{
+      setNext(1)
+    }
+
   }
-  const verifyEmail=(e)=>{
+  const verifyEmail=async (e)=>{
     e.preventDefault()
-    setNext(2)
+    let res=await fetchData("checkemail",{email:email})
+    if(res.error)
+    {
+      setDisplay({type:'r',msg:res.error})
+    }
+    else{
+      setNext(2)
+    }
   }
 
   return (
@@ -58,7 +67,7 @@ function Register(){
                   <div>
                     <label htmlFor="nickname">Nickname:
                     </label>
-                    <input type="text" value={nickname} onChange={e=>{setNickname(e.target.value)}}
+                    <input type="text" value={nickname} onChange={e=>{setNickname(e.target.value)}} minLength='5'
                     name="nickname" id="nickname" required />
                   </div>
                   <button type="submit">Next</button>
@@ -84,13 +93,13 @@ function Register(){
                 <div>
                   <label htmlFor="password">Password:
                   </label>
-                  <input type="password" value={password} onChange={e=>{setPassword(e.target.value)}}
+                  <input type="password" value={password} onChange={e=>{setPassword(e.target.value)}} minLength='8'
                    name="password" id="password" required />
                 </div>
                 <div>
                   <label htmlFor="cpassword">Password:
                   </label>
-                  <input type="password" value={password} onChange={e=>{setPassword(e.target.value)}}
+                  <input type="password" value={cpassword} onChange={e=>{setcPassword(e.target.value)}}
                    name="cpassword" id="cpassword" required />
                 </div>
                 <button type="submit">Login</button>

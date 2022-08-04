@@ -1,8 +1,10 @@
 #profile-page{
     padding: 0 10px;
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(300px,80%);
+    grid-template-rows:200px repeat(3,70px) max-content;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -14,21 +16,21 @@
     width: 150px;
     height: 150px;
     border-radius:50% ;
+    margin: auto;
 }
 
-#cont{
-    width: 100%;
+.cont{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    border-bottom: 2px solid brown;
+    margin: auto;
 }
-#cont span{
+
+.cont h5,.cont span{
     display: block;
-    margin: auto;
-    width: fit-content;
-    margin-bottom: 3px;
-}
-#info{
-    height: 150px;
+    min-width: 100px;
     width: 100%;
-    margin: auto;
-    /* max-width: 600px; */
-    border: 2px dotted black ;
+    word-wrap: break-word;
 }

@@ -8,10 +8,17 @@ import {useState,useEffect} from "react"
 import {BrowserRouter,Navigate,Route,Routes} from "react-router-dom"
 import {profileContext} from "./contexts/profile"
 import {smContext} from "./contexts/smallscreen"
+import {displayContext} from "./contexts/display"
+import { messageContext } from './contexts/messageContext';
 import PeoplePage from './Pages/PeoplePage';
+import Alert from './utilities/Alert';
+import fetchData from './contollers/fetch';
+import socket from './contollers/socket';
 
 function App() {
   const [smscreen,setScreen]=useState(1);
+  const [display,setDisplay]=useState(()=>{});
+  const [messages,setMessages]=useState({})
   useEffect(()=>{
 		if(window.innerWidth<=700){
 			setScreen(1);
@@ -28,17 +35,30 @@ function App() {
 			}
 			document.querySelector('main').style.height=window.visualViewport.height-45.6+'px'
 		})
-		// setProfile(0)
+		const initalise=async()=>{
+			const res=await fetchData("info",{})
+			if(!res.error)
+			{
+				setProfile(res)
+				socket.connect()
+			}
+		}
+
+		initalise()
+
 	},[])
-	const [profile,setProfile]=useState(()=>{return {name:"Nidheesha",friends:["hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo","hello","hello","hello","hello","hello","hello","ehllo"]}})
-	// const [profile,setProfile]=useState(()=>0)
+
+	const [profile,setProfile]=useState(()=>0)
 	
 	return (
     <>
 	<profileContext.Provider value={[profile,setProfile]}>
 	<smContext.Provider value={[smscreen,setScreen]}>
+	<displayContext.Provider value={[display,setDisplay]}>
+	<messageContext.Provider value={[messages,setMessages]}>
     <BrowserRouter>
     		<Nav/>
+			<Alert/>
 		<Routes>
         	<Route path="/"	element={<ChatPage/>}/>
 			
@@ -46,10 +66,12 @@ function App() {
 			<Route path="profile" element={profile?<ProfilePage/>:<Navigate to="/login"/>}/>
 			
 			<Route path="login"	element={profile?<Navigate to="/profile"/>:<LoginPage/>}/>
-			{/* <Route path="login"	element={profile?<Navigate to="/profile"/>:<RegisterPage/>}/> */}
+			<Route path="register"	element={profile?<Navigate to="/profile"/>:<RegisterPage/>}/>
 			<Route path='*' element={<div>404 bad request</div>}/>
 		</Routes>
     </BrowserRouter>
+	</messageContext.Provider>
+	</displayContext.Provider>
 	</smContext.Provider>
 	</profileContext.Provider>
     </>

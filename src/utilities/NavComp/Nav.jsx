@@ -50,13 +50,19 @@ function Nav(){
 				<li>
 					<Link to="/people" onClick={()=>hamSet(0)}>People</Link> 
 				</li>
-				<li>
-					{profile?
-						<Link to="/profile" onClick={()=>hamSet(0)}>Profile</Link>	
-						:
-						<Link to="/login" onClick={()=>hamSet(0)}>Login</Link>	
+				
+					{profile?<li>
+						<Link to="/profile" onClick={()=>hamSet(0)}>Profile</Link></li>	
+						:<>
+							<li>
+								<Link to="/login" onClick={()=>hamSet(0)}>Login</Link>	
+							</li>
+							<li>
+								<Link to="/register" onClick={()=>hamSet(0)}>Register</Link>	
+							</li>
+						</>
 					}
-				</li>
+				
 			</ul>
 			<Outlet/>
 		</div>

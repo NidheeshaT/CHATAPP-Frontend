@@ -15,9 +15,14 @@ function ChatPage(){
   const [profile]=useContext(profileContext)
   const [search,setSearch]=useState(()=>'')
 
+  function find(e)
+  {
+      e.preventDefault()
+  }
+
   return (
     <>  
-      <Dashboard topleft={<InputBar btn='Search' value={search} setValue={setSearch}/>} topright={<Loading/>}  left={<List comp={Friend} render={profile.friends} ChangeView={ChangeView} empty={"No friends"}/>} right={view?<Chats view={view}/>:<NoChats/>}/>
+      <Dashboard topleft={<InputBar result={find} btn='Search' value={search} setValue={setSearch}/>} topright={<Loading/>}  left={<List comp={Friend} render={profile.friends} ChangeView={ChangeView} empty={"No friends"}/>} right={view?<Chats view={view}/>:<NoChats/>}/>
     </>
   )
 }
