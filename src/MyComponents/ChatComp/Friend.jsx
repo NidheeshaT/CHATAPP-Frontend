@@ -1,5 +1,3 @@
-import "./Friend.css"
-
 function Friend({ele,ChangeView}){
 
   return (
@@ -9,7 +7,6 @@ function Friend({ele,ChangeView}){
 
         </div>
         <h5 id="name">{ele.nickname}</h5>
-        <div id="mscount"></div>
       </div>
     </>
   )

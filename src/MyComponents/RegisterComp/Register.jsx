@@ -62,7 +62,7 @@ function Register(){
   return (
     <>
         <section className="form">
-          <form style={next===0?{}:{display:"none"}} onSubmit={verifyNickname}>
+        {next===0?<form onSubmit={verifyNickname}>
                   <div className="form-caption">Register:</div>
                   <div>
                     <label htmlFor="nickname">Nickname:
@@ -70,9 +70,9 @@ function Register(){
                     <input type="text" value={nickname} onChange={e=>{setNickname(e.target.value)}} minLength='5'
                     name="nickname" id="nickname" required />
                   </div>
-                  <button type="submit">Next</button>
-          </form>
-          <form style={next===1?{}:{display:"none"}} onSubmit={verifyEmail}>
+                  <button className="button pointer" type="submit">Next</button>
+          </form>:<></>}
+          {next===1?<form onSubmit={verifyEmail}>
                   <div className="form-caption">Register:</div>
                   <div>
                     <label htmlFor="useremail">Email:
@@ -80,9 +80,9 @@ function Register(){
                     <input type="email" value={email} onChange={e=>{setEmail(e.target.value)}}
                     name="useremail" id="useremail" required/>
                   </div>
-                  <button type="submit">Next</button>
-          </form>
-            <form style={next===2?{}:{display:"none"}} onSubmit={verifyData}>
+                  <button className="button pointer" type="submit">Next</button>
+          </form>:<></>}
+          {next===2?<form onSubmit={verifyData}>
                 <div className="form-caption">Register:</div>
                 <div>
                   <label htmlFor="name">Name:
@@ -102,8 +102,8 @@ function Register(){
                   <input type="password" value={cpassword} onChange={e=>{setcPassword(e.target.value)}}
                    name="cpassword" id="cpassword" required />
                 </div>
-                <button type="submit">Login</button>
-            </form>
+                <button className="button pointer" type="submit">Login</button>
+            </form>:<></>}
         </section>
 
 

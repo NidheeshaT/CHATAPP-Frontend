@@ -1,5 +1,4 @@
 nav{
-    color: white;
     background: black;
     display: flex;
     justify-content: space-between;
@@ -44,7 +43,6 @@ nav{
 #links ul li a{
     display: block;
     text-decoration: none;
-    color: white;
     padding: 10px;
     width: 100%;
 }

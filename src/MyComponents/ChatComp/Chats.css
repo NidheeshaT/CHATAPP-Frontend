@@ -1,8 +1,6 @@
 #chat-section{
     display: grid;
     grid-template-rows: auto max-content;
-    height: 100%;
-    width: 100%;
 }
 
 #chat-wrap{
@@ -12,33 +10,6 @@
 #chats{
     position: absolute;
     overflow-y: auto;
-    width: 100%;
     margin: auto;
-    height: 100%;
 }
 
-
-.right{
-    color: white;
-    padding: 3px 20px;
-    background-color: black;
-    margin: 10px 0px;
-    margin-left: auto;
-    width: fit-content;
-    border-top-left-radius:5px ;
-    border-bottom-left-radius:5px ;
-}
-.left{
-    margin-right: auto;
-    padding: 3px 20px;
-    background-color: white;
-    margin: 10px 0px;
-    width: fit-content;
-    border-top-right-radius:5px ;
-    border-bottom-right-radius:5px ;
-}
-
-#message{
-    display: grid;
-    grid-template-columns: 5fr 1fr;
-}

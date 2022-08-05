@@ -2,6 +2,13 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    color: white;
+}
+
+:root{
+    --primary:black;
+    --secondary:rgb(114, 0, 148);
+    --teritary:rgb(105, 0, 126);
 }
 
 html{
@@ -13,6 +20,10 @@ body{
     backdrop-filter: blur(2px);
     background-blend-mode: lighten;
     height: inherit;
+}
+
+input{
+    border: 1px;
 }
 
 @keyframes rotate {
@@ -41,7 +52,29 @@ body{
     z-index: 2;
 }
 
+/*Message alignment*/
+.right{
+    padding: 3px 20px;
+    background-color: black;
+    margin: 10px 0px;
+    margin-left: auto;
+    width: fit-content;
+    border-top-left-radius:5px ;
+    border-bottom-left-radius:5px ;
+}
+.left{
+    padding: 3px 20px;
+    background-color: var(--secondary);
+    margin: 10px 0px;
+    margin-right: auto;
+    width: fit-content;
+    border-top-right-radius:5px ;
+    border-bottom-right-radius:5px ;
+}
 
+
+
+/*Form base design*/
 .form{
     display:flex;
     justify-content:center;
@@ -65,7 +98,7 @@ body{
 .form-caption{
     margin-top: 0;
 }
-.form form div,.form  form button{
+.form form div{
     max-width: 400px;
     width: 100%;
     margin: 10px 0;
@@ -73,8 +106,12 @@ body{
     align-items: center;
     justify-content: center;
 }
+.form form input{
+    color: var(--primary);
+}
 .form form button{
     width: 200px;
+    margin: 10px 0;
 }
 .form form div label{
     display: inline-block;
@@ -86,4 +123,85 @@ body{
     width: 80%;
     min-width: 120px;
     padding: 3px 5px;
+}
+
+/*Card base design*/
+.card{
+    display:flex;
+    align-items: center;
+    width:100%;
+    height:50px;
+}
+.card-hover:hover{
+    background-color: var(--secondary);
+}
+
+.pointer{
+    cursor: pointer;
+}
+.border-bottom{
+    border-bottom: 3px double #1b3690;
+}
+
+.cir{
+    width:20px;
+    height:20px;
+    background-color:black;
+    border-radius:50%;
+    margin:0 5px;
+    box-shadow: 0px 0px 10px  rgba(255, 255, 255, 0.457);
+}
+
+.name{
+    margin: 0 10px;
+    font-size: 1.1rem;
+}
+
+
+/*small button style*/
+
+.button{
+    background-color: var(--secondary);
+    color:white;
+    padding: 5px 10px;
+    border: 3px solid var(--teritary);
+    border-radius: 5px;
+    transition: all ease 0.5s;
+}
+
+.button:hover{
+    background-color: transparent;
+}
+.button:active{
+    background-color: rgb(114, 0, 148);
+}
+
+
+/*Utility classes*/
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wh-100{
+    height: 100%;
+    width: 100%;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.hover-bottom:hover{
+    border-bottom: 2px inset var(--secondary);
+}
+
+.click-bottom{
+    border-bottom: 2px inset var(--primary);
+}
+
+.color-black{
+    color: black;
 }

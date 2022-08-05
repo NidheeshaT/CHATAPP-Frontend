@@ -70,9 +70,9 @@ function Chat({view}){
   },[view] )
   return (
     <>
-        <div id="chat-section">
+        <div className="wh-100" id="chat-section">
             <div id="chat-wrap">
-              <div id="chats">
+              <div className="wh-100" id="chats">
                 {curchat?curchat.map((ms,key)=>{
                   return(<div className={ms.al} key={key}>{ms.message}</div>)
                 }):<h1>Type to chat</h1>}

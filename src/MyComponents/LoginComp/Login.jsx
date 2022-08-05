@@ -1,6 +1,4 @@
-import "./Login.css"
 import { useState } from "react";
-import {Navigate} from "react-router-dom"
 import { useContext } from "react";
 import { profileContext } from "../../contexts/profile";
 import { displayContext } from "../../contexts/display";
@@ -46,7 +44,7 @@ function Login(){
                   <input type="password" value={password} onChange={e=>{setPassword(e.target.value)}}
                    name="password" id="password" required />
                 </div>
-                <button type="submit">Login</button>
+                <button className="button pointer" type="submit">Login</button>
             </form>
         </section>
 
