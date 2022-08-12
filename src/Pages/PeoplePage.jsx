@@ -33,7 +33,7 @@ function PeoplePage()
     return (
         <Dashboard topright={<Inputbar btn='Search' result={run} value={scr} setValue={setScr}/>} 
         right={<List render={people} comp={People}/>}
-        left={<List render={head==='sent'?profile.requestSent:profile.requestRecieved} comp={Request}/>}
+        left={<List render={head==='sent'?profile.requestSent:profile.requestRecieved} control={head} comp={Request}/>}
         topleft={<ReqHead head={head} setHead={setHead}/>}
         />
     )

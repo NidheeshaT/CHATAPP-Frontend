@@ -13,12 +13,15 @@ import { messageContext } from './contexts/messageContext';
 import PeoplePage from './Pages/PeoplePage';
 import Alert from './utilities/Alert';
 import fetchData from './contollers/fetch';
+import {activate} from './contollers/socket';
 import socket from './contollers/socket';
+import {newmessageContext} from './contexts/newMessage'
 
 function App() {
   const [smscreen,setScreen]=useState(1);
   const [display,setDisplay]=useState(()=>{});
   const [messages,setMessages]=useState({})
+  const [newmessage,setNewMessage]=useState(()=>{})
   useEffect(()=>{
 		if(window.innerWidth<=700){
 			setScreen(1);
@@ -40,10 +43,9 @@ function App() {
 			if(!res.error)
 			{
 				setProfile(res)
-				socket.connect()
+				activate(newmessage,setNewMessage,setProfile)
 			}
 		}
-
 		initalise()
 
 	},[])
@@ -56,6 +58,7 @@ function App() {
 	<smContext.Provider value={[smscreen,setScreen]}>
 	<displayContext.Provider value={[display,setDisplay]}>
 	<messageContext.Provider value={[messages,setMessages]}>
+	<newmessageContext.Provider value={[newmessage,setNewMessage]}>
     <BrowserRouter>
     		<Nav/>
 			<Alert/>
@@ -70,6 +73,7 @@ function App() {
 			<Route path='*' element={<div>404 bad request</div>}/>
 		</Routes>
     </BrowserRouter>
+	</newmessageContext.Provider>
 	</messageContext.Provider>
 	</displayContext.Provider>
 	</smContext.Provider>

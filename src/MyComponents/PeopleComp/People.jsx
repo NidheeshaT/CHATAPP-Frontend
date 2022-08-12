@@ -30,7 +30,7 @@ function People({ele}){
           <h5 className="name">{ele.nickname}</h5>
           <i>{ele.description}</i>
         </div>
-        <button onClick={requestSend} className="small-button pointer">Add</button>
+        <button onClick={requestSend} className="button pointer">Add</button>
     </div>
     </>
   )

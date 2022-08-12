@@ -2,7 +2,7 @@
     padding: 0 10px;
     display: grid;
     grid-template-columns: minmax(300px,80%);
-    grid-template-rows:200px repeat(3,70px) max-content;
+    grid-template-rows:200px repeat(3,70px) minmax(70px,max-content);
     flex-direction: column;
     justify-content: center;
     align-items: center;

@@ -16,6 +16,7 @@ function Register(){
 
   const [display,setDisplay]=useContext(displayContext)
   const [next,setNext]=useState(()=>0)
+  const [back,setBack]=useState(()=>0)
 
   const  verifyData= async (e)=>{
     e.preventDefault()
@@ -62,16 +63,18 @@ function Register(){
   return (
     <>
         <section className="form">
-        {next===0?<form onSubmit={verifyNickname}>
-                  <div className="form-caption">Register:</div>
-                  <div>
-                    <label htmlFor="nickname">Nickname:
-                    </label>
-                    <input type="text" value={nickname} onChange={e=>{setNickname(e.target.value)}} minLength='5'
-                    name="nickname" id="nickname" required />
-                  </div>
-                  <button className="button pointer" type="submit">Next</button>
-          </form>:<></>}
+        {next===0?
+        <form onSubmit={verifyNickname}>
+          <div className="form-caption">Register:</div>
+          <div>
+            <label htmlFor="nickname">Nickname:
+            </label>
+            <input type="text" value={nickname} onChange={e=>{setNickname(e.target.value)}} minLength='5'
+            name="nickname" id="nickname" required />
+          </div>
+          <button className="button pointer" type="submit">Next</button>
+          </form>:<></>
+          }
           {next===1?<form onSubmit={verifyEmail}>
                   <div className="form-caption">Register:</div>
                   <div>
@@ -81,6 +84,7 @@ function Register(){
                     name="useremail" id="useremail" required/>
                   </div>
                   <button className="button pointer" type="submit">Next</button>
+                  <button className="button pointer" type="submit" onClick={e=>{e.preventDefault();setNext(p=>p-1)}}>Back</button>
           </form>:<></>}
           {next===2?<form onSubmit={verifyData}>
                 <div className="form-caption">Register:</div>
@@ -102,7 +106,8 @@ function Register(){
                   <input type="password" value={cpassword} onChange={e=>{setcPassword(e.target.value)}}
                    name="cpassword" id="cpassword" required />
                 </div>
-                <button className="button pointer" type="submit">Login</button>
+                <button className="button pointer" type="submit">Submit</button>
+                <button className="button pointer" type="submit" onClick={e=>{e.preventDefault();setNext(p=>p-1)}}>Back</button>
             </form>:<></>}
         </section>
 

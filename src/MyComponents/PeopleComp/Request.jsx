@@ -1,10 +1,12 @@
 import { useContext } from "react"
 import { displayContext } from "../../contexts/display"
+import { profileContext } from "../../contexts/profile"
 import fetchData from "../../contollers/fetch"
 
 function Request({ele,control}){
 
   const [display,setDisplay]=useContext(displayContext)
+  const [profile,setProfile]=useContext(profileContext)
   const requestAccept= async ()=>{
     let res=await fetchData("requests/accept",{friendname:ele.nickname})
     if(res.error)
@@ -13,6 +15,7 @@ function Request({ele,control}){
     }
     else{
       setDisplay({type:'g',msg:"Success"})
+      setProfile(res)
     }
   }
   const requestCancel= async()=>{
@@ -25,6 +28,7 @@ function Request({ele,control}){
     }
     else{
       setDisplay({type:'g',msg:"Success"})
+      setProfile(res)
     }
   }
 
@@ -34,9 +38,10 @@ function Request({ele,control}){
         <div className="card">
           <h5 id="name">{ele.nickname}</h5>
         </div>
-        {control==='sent'?{}:
-        <button onClick={requestAccept} className="small-button pointer" style={{marginRight:'3px'}}>Accept</button>}
-        <button onClick={requestCancel} className="small-button pointer">Cancel</button>
+        {control==='sent'?<></>
+        :<button onClick={requestAccept} className="button pointer" style={{marginRight:'3px'}}>Accept</button>
+        }
+        <button onClick={requestCancel} className="button pointer">{control==='sent'?"Cancel":"Reject"}</button>
     </div>
     </>
   )

@@ -1,6 +1,9 @@
+const url='https://chat-mern-backend.herokuapp.com/'
+// const url='http://localhost:80/'
+
 const fetchData=  async (path,body)=>{
     
-    let res=await fetch(`http://localhost:80/${path}`, {
+    let res=await fetch(`${url}${path}`, {
       method: 'POST',
       mode:"cors",
       headers: {
