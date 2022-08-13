@@ -90,7 +90,7 @@ function Chat({view}){
 
             </div>
             <form onSubmit={getMessage} style={{width:"100%",height:"100%",display:"grid",gridTemplateColumns:"1fr max-content",alignItems: 'end'}}>
-              <span id="k" className="bg-white color-primary br-5" style={{minHeight:'40px',wordBreak:"break-word",overflowWrap:"anywhere",whiteSpace:"break-spaces",width:"100%"}} contentEditable  
+              <span id="k" className="bg-white color-primary br-5" style={{minHeight:'40px',wordBreak:"break-word",width:"100%"}} contentEditable  
               onKeyUp={(e)=>{setMessage(e.target.innerHTML)}}>
               </span>
               <button className="button pointer" style={{height:'40px'}} type="submit">Send</button>
