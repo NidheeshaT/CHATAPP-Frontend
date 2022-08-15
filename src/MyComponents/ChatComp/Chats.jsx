@@ -52,20 +52,15 @@ function Chat({view}){
       if(l[i]===br[j])
       {
         j--;
-        console.log("hi")
       }
       else
       {
-        if(j===br.length-1)
-        {
-          console.log(i)
-          l=l.slice(0,i)
-        }
         break
       }
       if(j===-1)
       {
         j=br.length-1
+        l=l.slice(0,i)
       }
     }
     console.log(l)
