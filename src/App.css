@@ -13,6 +13,10 @@
 
 html{
     height: 100%;
+    font-size: 18px;
+}
+button{
+    font-size: 17px;
 }
 
 body{
@@ -24,6 +28,12 @@ body{
 
 input{
     border: 1px;
+    font-size: 18px;
+    padding: 1px;
+}
+
+span:focus{
+    outline: none;
 }
 
 /*Loading style*/
@@ -62,6 +72,7 @@ input{
 
 /*Message alignment*/
 .right{
+    font-size: 18px;
     padding: 3px 20px;
     background-color: black;
     margin: 10px 0px;
@@ -73,6 +84,7 @@ input{
     word-break:break-word;
 }
 .left{  
+    font-size: 18px;
     max-width: 80%;
     padding: 3px 20px;
     background-color: var(--secondary);

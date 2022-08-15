@@ -43,7 +43,7 @@ nav{
 #links ul li a{
     display: block;
     text-decoration: none;
-    padding: 10px;
+    padding: 8px 10px;
     width: 100%;
 }
 
