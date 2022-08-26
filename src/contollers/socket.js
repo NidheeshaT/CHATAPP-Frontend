@@ -16,20 +16,19 @@ autoConnect:false
 function activate(newmessage,setNewMessages,setProfile)
 {
   socket.connect()
-    socket.on("message",(from,data)=>{
-      setNewMessages(()=>[from,data]);
-    })
+  socket.on("message",(from,data)=>{
+    setNewMessages(()=>[from,data]);
+  })
   socket.on("refetch",async ()=>{
     const res=await fetchData("info",{})
+    console.log("hi")
     if(!res.error)
     {
-      setProfile(res)
-    }
-    else{
-      setProfile(()=>{})
+      setProfile((prev)=>{ return {...prev,...res} })
     }
   })
 }
+
 
 export {activate}
 export default socket
