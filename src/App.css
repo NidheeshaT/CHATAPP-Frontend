@@ -3,6 +3,7 @@
     padding: 0px;
     box-sizing: border-box;
     color: white;
+    font-family:serif;
 }
 
 :root{
@@ -222,16 +223,16 @@ span:focus{
     text-align: center;
 }
 
-.hover-bottom:hover{
-    border-bottom: 2px inset var(--secondary);
+.hover-secondary:hover{
+    background-color: var(--secondary);
 }
 
-.click-bottom{
-    border-bottom: 2px inset var(--primary);
+.click-primary{
+    background-color: var(--primary);
 }
 
 .color-primary,.color-primary div{
-    color: black;
+    color: var(--primary);
 }
 
 .bg-primary{
