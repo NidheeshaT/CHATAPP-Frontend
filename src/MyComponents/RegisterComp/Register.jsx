@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { profileContext } from "../../contexts/profile";
 import { displayContext } from "../../contexts/display";
 import fetchData from "../../contollers/fetch"
+import socket from "../../contollers/socket";
 
 function Register(){
 
@@ -13,10 +14,11 @@ function Register(){
   const [cpassword,setcPassword]=useState("")
   const [nickname,setNickname]=useState("")
   const [Name,setName]=useState("")
+  const [code,setCode]=useState()
+  const [verified,setVerified]=useState("")
 
   const [display,setDisplay]=useContext(displayContext)
   const [next,setNext]=useState(()=>0)
-  const [back,setBack]=useState(()=>0)
 
   const  verifyData= async (e)=>{
     e.preventDefault()
@@ -31,6 +33,7 @@ function Register(){
       setDisplay({type:'r',msg:res.error})
     }
     else{
+      socket.connect()
       setProfile(res)
     }
 
@@ -44,7 +47,7 @@ function Register(){
       setDisplay({type:'r',msg:res.error})
     }
     else{
-      setNext(1)
+      setNext((prev)=>prev+1)
     }
 
   }
@@ -56,7 +59,26 @@ function Register(){
       setDisplay({type:'r',msg:res.error})
     }
     else{
-      setNext(2)
+      setNext((prev)=>prev+1)
+    }
+  }
+
+  const verifyCode=async (e)=>{
+    e.preventDefault()
+    let res=await fetchData("checkcode",{email:email,code:code})
+    if(res.error)
+    {
+      setDisplay({type:'r',msg:res.error})
+    }
+    else{
+      setNext((prev)=>prev+1)
+    }
+  }
+  const resendCode=async ()=>{
+    let res=await fetchData("checkemail",{email:email})
+    if(res.error)
+    {
+      setDisplay({type:'r',msg:res.error})
     }
   }
 
@@ -86,7 +108,19 @@ function Register(){
                   <button className="button pointer" type="submit">Next</button>
                   <button className="button pointer" type="submit" onClick={e=>{e.preventDefault();setNext(p=>p-1)}}>Back</button>
           </form>:<></>}
-          {next===2?<form onSubmit={verifyData}>
+          {next===2?<form onSubmit={verifyCode}>
+                  <div className="form-caption">Register:</div>
+                  <div>
+                    <label htmlFor="useremail">Code:
+                    </label>
+                    <input type="number" value={code} min={111111} max={999999} onChange={e=>{setCode(e.target.value)}}
+                    name="useremail" id="useremail" required/>
+                  </div>
+                  <button className="button pointer" type="submit">Next</button>
+                  <button className="button pointer" type="submit" onClick={e=>{e.preventDefault();resendCode()}}>Resend Code</button>
+                  <button className="button pointer" type="submit" onClick={e=>{e.preventDefault();setNext(p=>p-1)}}>Back</button>
+          </form>:<></>}
+          {next===3?<form onSubmit={verifyData}>
                 <div className="form-caption">Register:</div>
                 <div>
                   <label htmlFor="name">Name:

@@ -23,7 +23,7 @@ function ChatPage(){
 
   return (
     <>  
-      <Dashboard topleft={<InputBar result={find} btn='Search' value={search} setValue={setSearch}/>} topright={<Loading/>}  left={<List comp={Friend} render={profile.friends} ChangeView={ChangeView} empty={"No friends"}/>} right={view?<Chats view={view}/>:<NoChats/>}/>
+      <Dashboard topleft={<InputBar result={find} btn='Search' value={search} setValue={setSearch}/>} topright={<div>{view}</div>}  left={<List comp={Friend} render={profile.friends} ChangeView={ChangeView} empty={"No friends"}/>} right={view?<Chats view={view}/>:<NoChats/>}/>
     </>
   )
 }
