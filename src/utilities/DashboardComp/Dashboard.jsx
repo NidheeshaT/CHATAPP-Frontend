@@ -35,7 +35,7 @@ function Dashboard(props){
     return(ele)
   }
   return (
-    <main style={props.topright?sm?{gridTemplateColumns:"40px 1fr"}:{}:{gridTemplateRows:"auto"}}>
+    <main style={props.topright?sm?{gridTemplateColumns:"40px 1fr"}:{}:sm?{}:{gridTemplateRows:"auto"}}>
       <div id="ham" onClick={hamfunc} style={props.left&&sm?{}:none}>
 				<span style={blk}></span>
 				<span style={blk}></span>

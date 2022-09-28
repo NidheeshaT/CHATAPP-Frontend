@@ -4,11 +4,13 @@ import { useContext } from "react";
 import { profileContext } from "../../contexts/profile";
 import { displayContext } from "../../contexts/display";
 import fetchData from "../../contollers/fetch"
-import socket from "../../contollers/socket";
+import {activate} from "../../contollers/socket";
+import { newmessageContext } from "../../contexts/newMessage";
 
 function Register(){
 
   const [profile,setProfile]=useContext(profileContext)
+  const [newmessage,setNewMessage]=useContext(newmessageContext)
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
   const [cpassword,setcPassword]=useState("")
@@ -33,7 +35,7 @@ function Register(){
       setDisplay({type:'r',msg:res.error})
     }
     else{
-      socket.connect()
+      activate(newmessage,setNewMessage,setProfile);
       setProfile(res)
     }
 

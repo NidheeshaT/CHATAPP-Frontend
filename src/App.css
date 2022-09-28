@@ -4,6 +4,7 @@
     box-sizing: border-box;
     color: white;
     font-family:serif;
+    position: relative!important;
 }
 
 :root{
@@ -59,7 +60,7 @@ span:focus{
 }
 
 .display-box{
-    position: absolute;
+    position: absolute!important;
     width: 100%;
     z-index: 2;
 }
@@ -73,6 +74,7 @@ span:focus{
 
 /*Message alignment*/
 .right{
+    overflow-x: auto;
     font-size: 18px;
     padding: 3px 20px;
     background-color: black;
@@ -85,6 +87,7 @@ span:focus{
     word-break:break-word;
 }
 .left{  
+    overflow-x: auto;
     font-size: 18px;
     max-width: 80%;
     padding: 3px 20px;

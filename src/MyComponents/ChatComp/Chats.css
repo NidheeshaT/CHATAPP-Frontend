@@ -8,7 +8,7 @@
 }
 
 #chats{
-    position: absolute;
+    position: absolute!important;
     overflow-y: auto;
     margin: auto;
 }

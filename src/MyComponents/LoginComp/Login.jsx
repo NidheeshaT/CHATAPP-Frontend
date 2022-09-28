@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useContext } from "react";
 import { profileContext } from "../../contexts/profile";
 import { displayContext } from "../../contexts/display";
-import socket from "../../contollers/socket"
+import {activate} from "../../contollers/socket";
+import { newmessageContext } from "../../contexts/newMessage";
 import fetchData from "../../contollers/fetch"
 
 function Login(){
 
+  const [newmessage,setNewMessage]=useContext(newmessageContext)
   const [profile,setProfile]=useContext(profileContext)
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
@@ -22,7 +24,7 @@ function Login(){
     }
     else{
       setProfile(res)
-      socket.connect()
+      activate(newmessage,setNewMessage,setProfile);
     }
 
   }

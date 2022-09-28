@@ -53,3 +53,18 @@ nav{
     color: black;
     background-color: white;
 }
+
+.show{
+    position:absolute!important;
+	flex-direction:column;
+	display: block !important;;
+	width:100vw;
+	right:0px;
+    top:41.6px;
+	align-items:stretch !important;
+	padding:10px 0px;
+}
+
+.none{
+    display: none!important ;
+}

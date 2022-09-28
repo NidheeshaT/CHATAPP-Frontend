@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 
 function List({render,control,comp:Comp,ChangeView,empty}){
-    useEffect(()=>{
-        console.log(render)
-    })
     return(
     <>
             {
