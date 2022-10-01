@@ -1,4 +1,32 @@
-# Getting Started with Create React App
+# CHATAPP-Frontend
+Frontend for Chat Application bulit using MERN and Socket.io.
+
+## Tech used:
+- [React](https://mongoosejs.com/)
+- [Socket.io](https://socket.io/)
+- Deployed on [Vercel](https://vercel.com/)
+
+# Installation
+
+1. - Fork the [repo](https://github.com/Nidheesha/CHATAPP-Frontend)
+   - Clone the repo to your local system
+   ```git
+   git clone https://github.com/NidheeshaT/CHATAPP-Frontend.git
+   cd CHATAPP-Frontend
+   ```
+
+2. Install the dependencies:
+   ```bash
+    npm install
+    ```
+3. Then, run the development server:
+    ```bash
+    npm start
+    ```
+
+Open [LocalHost 3000 port](http://localhost:3000) with your browser to see the result.
+
+<!--  # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -31,9 +59,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Note: this is a one-way operation. Once you `eject`, you can't go back!** -->
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<!-- If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
@@ -67,4 +95,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
