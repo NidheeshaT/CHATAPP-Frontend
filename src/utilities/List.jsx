@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 function List({render,control,comp:Comp,ChangeView,empty}){
     return(
     <>

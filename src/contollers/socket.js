@@ -21,7 +21,6 @@ function activate(newmessage,setNewMessages,setProfile)
   })
   socket.on("refetch",async ()=>{
     const res=await fetchData("info",{})
-    console.log("hi")
     if(!res.error)
     {
       setProfile((prev)=>{ return {...prev,...res} })

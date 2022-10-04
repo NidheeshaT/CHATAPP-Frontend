@@ -46,9 +46,7 @@ function Chat({view}){
     if(!message)
       return
     let l=message
-    console.log(l)
     l=l.trimEnd()
-    console.log(l)
     const br="<div><br></div>"
     let j=br.length-1;
     for(let i=l.length-1;i>=0;i--)
@@ -67,7 +65,6 @@ function Chat({view}){
         l=l.slice(0,i)
       }
     }
-    console.log(l)
     const data={message:l,al:"right"}
     let temp={}
     temp[view]=messages[view]?[...messages[view],data]:[data]
