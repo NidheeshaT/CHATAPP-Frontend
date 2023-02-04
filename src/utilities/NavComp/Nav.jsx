@@ -22,8 +22,8 @@ function Nav(){
 
 
   return (
-    <nav id="navbar">
-		<div id="logo">WT</div>
+    <nav id="navbar" className="p-6">
+		<div id="logo" className="">NTChats</div>
 		<div id="links">
 			<div id="ham" onClick={hamfunc} className={sm?{}:'none'}>
 				<span></span>
