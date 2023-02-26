@@ -22,30 +22,30 @@ function Nav(){
 
 
   return (
-    <nav id="navbar" className="p-6">
+    <nav id="navbar" className="px-4 py-1">
 		<div id="logo" className="">NTChats</div>
-		<div id="links">
+		<div id="links" className="h-full">
 			<div id="ham" onClick={hamfunc} className={sm?{}:'none'}>
 				<span></span>
 				<span></span>
 				<span></span>
 			</div>
-			<ul className={sm?ham?'show':'none':{}}>
+			<ul className={`${sm?(ham?'show top-[100%] -right-4':'none'):''}`}>
 				<li>
-					<Link to="/" onClick={()=>hamSet(0)}>Chat</Link> 
+					<Link className="leading-none" to="/" onClick={()=>hamSet(0)}>Chat</Link> 
 				</li>
 				<li>
-					<Link to="/people" onClick={()=>hamSet(0)}>People</Link> 
+					<Link className="leading-none" to="/people" onClick={()=>hamSet(0)}>People</Link> 
 				</li>
 				
 					{profile?<li>
-						<Link to="/profile" onClick={()=>hamSet(0)}>Profile</Link></li>	
+						<Link className="leading-none" to="/profile" onClick={()=>hamSet(0)}>Profile</Link></li>	
 						:<>
 							<li>
-								<Link to="/login" onClick={()=>hamSet(0)}>Login</Link>	
+								<Link className="leading-none" to="/login" onClick={()=>hamSet(0)}>Login</Link>	
 							</li>
 							<li>
-								<Link to="/register" onClick={()=>hamSet(0)}>Register</Link>	
+								<Link className="leading-none" to="/register" onClick={()=>hamSet(0)}>Register</Link>	
 							</li>
 						</>
 					}

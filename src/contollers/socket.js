@@ -1,8 +1,8 @@
 import { io } from "socket.io-client"
 import fetchData from "./fetch"
 
-const url='https://chat-mern-backend.herokuapp.com/'
-// const url='http://localhost:80/'
+const url=process.env.REACT_APP_ENV==="production"?process.env.REACT_APP_BACKEND_URL:"http://localhost"
+
 const socket =io(url,
 {
   withCredentials:true,

@@ -80,14 +80,14 @@ function Chat({view}){
             <div id="chat-wrap">
               <div className="wh-100" id="chats">
                 {curchat?curchat.map((ms,key)=>{
-                  return(<div className={ms.al} key={key} dangerouslySetInnerHTML={{__html:DOMPurify.sanitize(ms.message)}}></div>)
+                  return(<div className={ms.al} key={key}>{ms.message}</div>)
                 }):<h1>Type to chat</h1>}
               </div>
 
             </div>
             <form onSubmit={getMessage} style={{width:"100%",height:"100%",display:"grid",gridTemplateColumns:"1fr max-content",alignItems: 'end'}}>
               <span id="k" className="bg-white color-primary br-5" style={{minHeight:'40px',wordBreak:"break-word",width:"100%",fontSize: "18px",padding:"1px"}} contentEditable  
-              onInput={(e)=>{setMessage(DOMPurify.sanitize(e.target.innerHTML))}}>
+              onInput={(e)=>setMessage(e.currentTarget.textContent)}>
               </span>
               <button className="button pointer" style={{height:'40px'}} type="submit">Send</button>
             </form>
